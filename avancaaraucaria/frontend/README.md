@@ -2,6 +2,19 @@
 
 Site moderno e responsivo com animações para o Avança Araucária.
 
+## ⚡ Início Rápido
+
+**Comando mais rápido para iniciar o servidor:**
+
+```powershell
+cd C:\Users\Big\Desktop\avancaaraucaria\frontend
+python -m http.server 8000
+```
+
+Depois abra no navegador: **http://localhost:8000**
+
+---
+
 ## 🚀 Características
 
 - **Design Moderno**: Interface limpa e profissional
@@ -17,7 +30,7 @@ frontend/
 ├── index.html      # Página principal
 ├── styles.css      # Estilos e animações
 ├── script.js       # JavaScript para interatividade
-├── 941.jpg         # Imagem de fundo do hero
+├── Avancaaraucaria_logo.jpg  # Imagem de fundo do hero
 └── README.md       # Este arquivo
 ```
 
@@ -32,31 +45,82 @@ frontend/
 
 ## 💻 Como Usar
 
-### Opção 1: Abrir diretamente no navegador
-1. Abra o arquivo `index.html` no seu navegador
-2. Pronto! O site está funcionando
+### 🚀 Iniciar o Servidor Local
 
-### Opção 2: Usar um servidor local (recomendado)
+#### Opção 1: Python (Recomendado - Mais Simples)
 
-**Com Python:**
-```bash
+**Windows (PowerShell ou CMD):**
+```powershell
+cd C:\Users\Big\Desktop\avancaaraucaria\frontend
+python -m http.server 8000
+```
+
+**Ou se estiver na raiz do projeto:**
+```powershell
 cd frontend
 python -m http.server 8000
 ```
-Acesse: http://localhost:8000
 
-**Com Node.js (http-server):**
+**Acesse no navegador:**
+```
+http://localhost:8000
+```
+
+**Para parar o servidor:** Pressione `Ctrl + C` no terminal
+
+---
+
+#### Opção 2: Node.js (http-server)
+
+**Instalar o http-server (se ainda não tiver):**
 ```bash
 npm install -g http-server
-cd frontend
-http-server
 ```
 
-**Com PHP:**
-```bash
-cd frontend
+**Iniciar o servidor:**
+```powershell
+cd C:\Users\Big\Desktop\avancaaraucaria\frontend
+http-server -p 8000
+```
+
+**Acesse no navegador:**
+```
+http://localhost:8000
+```
+
+---
+
+#### Opção 3: PHP
+
+**Windows (se tiver PHP instalado):**
+```powershell
+cd C:\Users\Big\Desktop\avancaaraucaria\frontend
 php -S localhost:8000
 ```
+
+**Acesse no navegador:**
+```
+http://localhost:8000
+```
+
+---
+
+#### Opção 4: VS Code Live Server
+
+Se você usa Visual Studio Code:
+1. Instale a extensão "Live Server"
+2. Clique com botão direito no arquivo `index.html`
+3. Selecione "Open with Live Server"
+
+---
+
+#### Opção 5: Abrir diretamente no navegador
+
+**Nota:** Algumas funcionalidades podem não funcionar corretamente sem um servidor.
+
+1. Navegue até a pasta `frontend`
+2. Clique duas vezes no arquivo `index.html`
+3. O site abrirá no seu navegador padrão
 
 ## 🎯 Recursos Implementados
 
@@ -112,7 +176,7 @@ As animações podem ser ajustadas no arquivo `styles.css` e `script.js`.
 
 ## 📝 Notas
 
-- A imagem `941.jpg` é usada como fundo na seção hero
+- A imagem `Avancaaraucaria_logo.jpg` é usada como fundo na seção hero
 - O formulário de contato mostra uma mensagem de sucesso, mas não envia emails automaticamente (precisa de backend)
 - Todas as animações são otimizadas para performance
 

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias - Avança Araucária</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .noticias-page {
+            padding-top: 100px;
+        }
+        
+        .noticias-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .noticias-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .noticias-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .noticias-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+        
+        .noticia-full {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .noticia-full:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .noticia-full-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .noticia-full-content {
+            padding: 2.5rem;
+        }
+        
+        .noticia-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .noticia-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .noticia-category {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .noticia-full-content h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .noticia-full-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .noticia-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .noticias-header h1 {
+                font-size: 2rem;
+            }
+            
+            .noticia-full-content {
+                padding: 1.5rem;
+            }
+            
+            .noticia-full-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .noticia-full-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none;">
+                        <span class="logo-text">Avança Araucária</span>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home" class="nav-link">Início</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="index.html#câmaras" class="nav-link">Câmaras Técnicas</a></li>
+                    <li><a href="noticias.html" class="nav-link active">Notícias</a></li>
+                    <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Notícias Header -->
+    <div class="noticias-header">
+        <div class="container">
+            <h1>Notícias e Atualizações</h1>
+            <p>Fique por dentro das últimas novidades do Avança Araucária</p>
+        </div>
+    </div>
+
+    <!-- Notícias Content -->
+    <div class="noticias-container">
+        <a href="index.html#noticias" class="back-link">
+            ← Voltar para o início
+        </a>
+
+        <!-- Notícia 1 -->
+        <article class="noticia-full fade-in-up">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 15 Nov 2025</span>
+                    <span class="noticia-category">Desenvolvimento Regional</span>
+                </div>
+                <h2>Lançamento do Programa de Inovação Tecnológica Regional</h2>
+                <p class="noticia-excerpt">Iniciativa pioneira visa transformar a região através da tecnologia e inovação.</p>
+                <p>O Avança Araucária anuncia o lançamento de um programa inédito de inovação tecnológica que vai beneficiar mais de 200 empresas da região. O programa, desenvolvido em parceria com universidades e centros de pesquisa, oferecerá capacitação, consultoria e acesso a tecnologias de ponta.</p>
+                <p>O investimento inicial de R$ 5 milhões será destinado à modernização de processos produtivos, implementação de soluções digitais e formação de profissionais qualificados. As empresas interessadas podem se inscrever a partir do próximo mês através do portal do Avança Araucária.</p>
+                <p>Segundo o coordenador do programa, "esta é uma oportunidade única para as empresas locais se posicionarem no mercado nacional e internacional através da inovação e tecnologia". O programa terá duração de 24 meses e contará com acompanhamento técnico especializado.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 2 -->
+        <article class="noticia-full fade-in-up delay-1">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 12 Nov 2025</span>
+                    <span class="noticia-category">Sustentabilidade</span>
+                </div>
+                <h2>Projeto de Energia Solar Atinge Meta de 10MW Instalados</h2>
+                <p class="noticia-excerpt">Região alcança marco importante na geração de energia renovável.</p>
+                <p>O projeto de energia solar do Avança Araucária atingiu um marco histórico com a instalação de 10MW de capacidade de geração de energia limpa. O projeto, que começou há dois anos, já beneficiou mais de 1.500 residências e 50 empresas da região.</p>
+                <p>A iniciativa faz parte do compromisso do Avança Araucária com a sustentabilidade e o desenvolvimento de baixo carbono. Além dos benefícios ambientais, o projeto gerou mais de 200 empregos diretos e indiretos durante a fase de instalação.</p>
+                <p>"Estamos muito orgulhosos deste resultado. A energia solar não só reduz os custos para as famílias e empresas, mas também contribui significativamente para a redução das emissões de carbono na região", destacou o coordenador de Meio Ambiente.</p>
+                <p>O próximo objetivo é alcançar 25MW até o final de 2026, com novos projetos já em fase de planejamento.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 3 -->
+        <article class="noticia-full fade-in-up delay-2">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 10 Nov 2025</span>
+                    <span class="noticia-category">Infraestrutura</span>
+                </div>
+                <h2>Nova Rodovia Regional Conecta Municípios da Região</h2>
+                <p class="noticia-excerpt">Obra de infraestrutura facilita o escoamento de produção e melhora a conectividade regional.</p>
+                <p>A inauguração da nova rodovia regional marca um importante avanço na infraestrutura da região. Com 45 quilômetros de extensão, a nova via conecta cinco municípios e deve reduzir o tempo de transporte de cargas em até 40%.</p>
+                <p>A obra, que teve investimento de R$ 120 milhões, foi viabilizada através de parceria entre o Avança Araucária, governo estadual e iniciativa privada. A rodovia possui duas faixas em cada sentido, acostamentos e sistema de drenagem moderno.</p>
+                <p>O impacto econômico esperado é significativo, com projeção de aumento de 30% no fluxo de mercadorias e redução de custos logísticos para as empresas da região. A rodovia também melhora o acesso a áreas rurais, facilitando o escoamento da produção agrícola.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 4 -->
+        <article class="noticia-full fade-in-up delay-3">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 08 Nov 2025</span>
+                    <span class="noticia-category">Educação</span>
+                </div>
+                <h2>Centro de Qualificação Profissional Forma Primeira Turma</h2>
+                <p class="noticia-excerpt">Iniciativa capacita profissionais para o mercado de trabalho regional.</p>
+                <p>O Centro de Qualificação Profissional do Avança Araucária formou sua primeira turma com 150 profissionais em áreas estratégicas para o desenvolvimento regional. Os cursos oferecidos incluíram tecnologia da informação, gestão empresarial, logística e operações industriais.</p>
+                <p>Com taxa de empregabilidade de 85% nos primeiros três meses após a conclusão, o centro se consolida como uma importante ferramenta de qualificação profissional na região. Os alunos receberam certificação reconhecida pelo mercado e suporte na inserção no mercado de trabalho.</p>
+                <p>"A qualificação profissional é fundamental para o desenvolvimento regional. Estamos preparando pessoas para ocupar as vagas que estão sendo criadas pelos investimentos na região", explicou a coordenadora de Educação.</p>
+                <p>As próximas turmas já estão com inscrições abertas, com expectativa de formar mais 500 profissionais até o final do ano.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 5 -->
+        <article class="noticia-full fade-in-up delay-1">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 05 Nov 2025</span>
+                    <span class="noticia-category">Cooperação</span>
+                </div>
+                <h2>Reunião Anual das Câmaras Técnicas Define Prioridades para 2026</h2>
+                <p class="noticia-excerpt">Representantes de todas as câmaras técnicas se reuniram para planejar o próximo ano.</p>
+                <p>A Reunião Anual das Câmaras Técnicas do Avança Araucária reuniu mais de 200 representantes de diferentes setores para definir as prioridades e estratégias para 2026. O evento, realizado durante dois dias, contou com workshops, palestras e sessões de trabalho em grupo.</p>
+                <p>Entre as principais decisões, destacam-se o aumento do investimento em projetos de sustentabilidade, a criação de novos programas de apoio às pequenas e médias empresas, e o fortalecimento da cooperação entre municípios da região.</p>
+                <p>"Esta reunião é fundamental para alinharmos nossas ações e garantir que todos os setores estejam representados nas decisões estratégicas", afirmou o presidente do Avança Araucária.</p>
+                <p>O documento final com as diretrizes para 2026 será publicado nas próximas semanas e estará disponível para consulta pública.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 6 -->
+        <article class="noticia-full fade-in-up delay-2">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 03 Nov 2025</span>
+                    <span class="noticia-category">Economia</span>
+                </div>
+                <h2>Parque Industrial Regional Atrai Novos Investimentos</h2>
+                <p class="noticia-excerpt">Três novas empresas anunciam instalação no parque industrial da região.</p>
+                <p>O Parque Industrial Regional do Avança Araucária recebeu três novos investimentos que somam R$ 80 milhões e devem gerar mais de 300 empregos diretos. As empresas, dos setores de tecnologia, alimentos e autopeças, escolheram a região devido à infraestrutura, localização estratégica e incentivos oferecidos.</p>
+                <p>As obras de instalação já começaram e a previsão é que as empresas iniciem suas operações no primeiro semestre de 2026. O parque industrial, que já abriga 25 empresas, se consolida como um importante polo de desenvolvimento econômico regional.</p>
+                <p>"Estes novos investimentos reforçam a atratividade da nossa região e demonstram a confiança dos investidores no potencial de crescimento", destacou o coordenador de Desenvolvimento Econômico.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 7 -->
+        <article class="noticia-full fade-in-up delay-3">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 01 Nov 2025</span>
+                    <span class="noticia-category">Meio Ambiente</span>
+                </div>
+                <h2>Programa de Reflorestamento Atinge 100 Mil Árvores Plantadas</h2>
+                <p class="noticia-excerpt">Iniciativa ambiental supera meta inicial e continua expandindo.</p>
+                <p>O Programa de Reflorestamento do Avança Araucária alcançou a marca de 100 mil árvores plantadas, superando a meta inicial estabelecida para 2025. O programa, que envolve comunidades locais, escolas e empresas, tem como objetivo recuperar áreas degradadas e criar corredores ecológicos na região.</p>
+                <p>As espécies plantadas são nativas da Mata Atlântica e foram escolhidas para garantir a biodiversidade e a sustentabilidade do projeto. O programa também inclui ações de educação ambiental e monitoramento das áreas reflorestadas.</p>
+                <p>"Este é um resultado extraordinário que demonstra o compromisso da nossa região com a preservação ambiental. Cada árvore plantada é um passo em direção a um futuro mais sustentável", comemorou o coordenador de Meio Ambiente.</p>
+                <p>A nova meta é alcançar 200 mil árvores até o final de 2026, com a expansão do programa para novas áreas.</p>
+            </div>
+        </article>
+
+        <!-- Notícia 8 -->
+        <article class="noticia-full fade-in-up delay-1">
+            <div class="noticia-full-image">
+                <div class="noticia-placeholder"></div>
+            </div>
+            <div class="noticia-full-content">
+                <div class="noticia-meta">
+                    <span class="noticia-date">📅 28 Out 2025</span>
+                    <span class="noticia-category">Turismo</span>
+                </div>
+                <h2>Roteiro Turístico Regional é Lançado com Foco em Sustentabilidade</h2>
+                <p class="noticia-excerpt">Nova rota turística destaca belezas naturais e cultura local.</p>
+                <p>O Avança Araucária lançou um novo roteiro turístico regional que conecta pontos de interesse natural, histórico e cultural da região. O roteiro, desenvolvido em parceria com operadoras de turismo locais, tem foco em turismo sustentável e responsável.</p>
+                <p>O circuito inclui trilhas ecológicas, sítios históricos, propriedades rurais e pontos de observação de fauna e flora. O projeto também prevê a capacitação de guias locais e a criação de infraestrutura de apoio ao turismo.</p>
+                <p>"O turismo sustentável é uma importante fonte de renda para as comunidades locais e contribui para a preservação do patrimônio natural e cultural da região", explicou a coordenadora de Turismo.</p>
+                <p>O roteiro já está disponível para agendamento e espera receber mais de 5.000 visitantes no primeiro ano.</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Avança Araucária</h3>
+                    <p>Desenvolvimento regional sustentável e inovador.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#projetos">Projetos</a></li>
+                        <li><a href="index.html#câmaras">Câmaras Técnicas</a></li>
+                        <li><a href="noticias.html">Notícias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>contato@avancaraucaria.com.br</li>
+                        <li>(42) 99999-9999</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Avança Araucária. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
