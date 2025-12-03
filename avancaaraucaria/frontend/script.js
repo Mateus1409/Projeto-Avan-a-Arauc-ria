@@ -1,3 +1,120 @@
+// Mobile Device Detection
+const isMobileDevice = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+    const isMobile = mobileRegex.test(userAgent.toLowerCase());
+    const isSmallScreen = window.innerWidth <= 768;
+    return isMobile || isSmallScreen;
+};
+
+// Check if user wants to view desktop version (stored in localStorage)
+const prefersDesktop = localStorage.getItem('prefersDesktop') === 'true';
+
+// Auto-redirect to mobile version if on mobile device and not on mobile.html
+if (isMobileDevice() && !prefersDesktop && !window.location.pathname.includes('mobile.html')) {
+    // Only redirect if we're on index.html or root
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        window.location.href = 'mobile.html';
+    }
+}
+
+// Add toggle button for switching between mobile and desktop versions
+const createVersionToggle = () => {
+    if (isMobileDevice() && window.location.pathname.includes('mobile.html')) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.innerHTML = '📱 Ver versão desktop';
+        toggleBtn.className = 'version-toggle';
+        toggleBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(44, 95, 141, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        `;
+        toggleBtn.addEventListener('click', () => {
+            localStorage.setItem('prefersDesktop', 'true');
+            window.location.href = 'index.html';
+        });
+        toggleBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 6px 20px rgba(44, 95, 141, 0.6)';
+        });
+        toggleBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(44, 95, 141, 0.4)';
+        });
+        document.body.appendChild(toggleBtn);
+    } else if (isMobileDevice() && !window.location.pathname.includes('mobile.html')) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.innerHTML = '📱 Ver versão mobile';
+        toggleBtn.className = 'version-toggle';
+        toggleBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(74, 144, 164, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        `;
+        toggleBtn.addEventListener('click', () => {
+            localStorage.removeItem('prefersDesktop');
+            window.location.href = 'mobile.html';
+        });
+        toggleBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 6px 20px rgba(74, 144, 164, 0.6)';
+        });
+        toggleBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(74, 144, 164, 0.4)';
+        });
+        document.body.appendChild(toggleBtn);
+    }
+};
+
+// Initialize version toggle on page load
+document.addEventListener('DOMContentLoaded', () => {
+    createVersionToggle();
+    
+    // Reset desktop preference after 24 hours
+    const lastReset = localStorage.getItem('desktopPreferenceReset');
+    const now = Date.now();
+    if (!lastReset || (now - parseInt(lastReset)) > 24 * 60 * 60 * 1000) {
+        localStorage.removeItem('prefersDesktop');
+        localStorage.setItem('desktopPreferenceReset', now.toString());
+    }
+});
+
+// Handle window resize to show/hide toggle button
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        const existingToggle = document.querySelector('.version-toggle');
+        if (existingToggle) {
+            existingToggle.remove();
+        }
+        createVersionToggle();
+    }, 250);
+});
+
 // Navigation Scroll Effect
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
